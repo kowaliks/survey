@@ -7,7 +7,6 @@ authors = ["kowaliks <kowal96@gmail.com>"]
 [tool.poetry.dependencies]
 python = "^3.9"
 PyDrive2 = "^1.10.0"
-streamlit = "^1.2.0"
 
 [tool.poetry.dev-dependencies]
 
