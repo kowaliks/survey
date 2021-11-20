@@ -2,12 +2,15 @@ from pydrive2.auth import GoogleAuth
 from pydrive2.drive import GoogleDrive
 from oauth2client.service_account import ServiceAccountCredentials
 
+import streamlit as st
+import json
+
 def main():
     # 1. Auth
     scope = ["https://www.googleapis.com/auth/drive"]
     gauth = GoogleAuth()
     gauth.auth_method = 'service'
-    gauth.credentials = ServiceAccountCredentials.from_json_keyfile_name('secrets/service_account.json', scope)
+    gauth.credentials = ServiceAccountCredentials.from_json_keyfile_dict(json.loads(st.secrets["service_account_keyfile"]), scope)
     drive = GoogleDrive(gauth)
 
     # 2. List all files
